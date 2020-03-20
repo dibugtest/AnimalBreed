@@ -1,0 +1,59 @@
+﻿@model Animal.Models.Diseases
+
+@{
+    ViewData["Title"] = "Goat Breed Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    
+</style>
+<div class="card mb-4 col-md-8 col-lg-offset-5" >
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Diseases</h3>
+    </div>
+    <center> @*<img src='@ViewBag.Image' asp-append-version="true" />*@</center>
+        <div style="padding-top:10px;">
+            <table class="table table-bordered" id="myTable">
+                <tr>
+                  
+                </tr>
+                <tr>
+                    <td>
+                       Diseases Name
+                    </td>
+                    <th>
+                        @Html.DisplayFor(model => model.diseasesNameEng)
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Diseases Name Nepali
+                    </td>
+                    <th>
+                        @Html.DisplayFor(model => model.diseasesNameNep)
+                    </th>
+                </tr> 
+                <tr>
+                    <td>
+                     Symptoms
+                    </td>
+                    <th>
+                        @Html.DisplayFor(model => model.symptom)
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        short Notes
+                    </td>
+                    <th>
+                        @Html.DisplayFor(model => model.shortNote)
+                    </th>
+                </tr>
+            </table>
+      
+    </div>
+
+    <div>
+        <a asp-action="Index" class="btn btn-default">Back to List</a>
+    </div>
+</div>

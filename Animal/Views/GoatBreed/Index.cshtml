@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Animal.Models.GoatBreed>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>बाख्राका जातहरु</h2>
+
+<p>
+    <a asp-action="AddEditAnimal">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               बाख्राको जात
+            </th>
+            <th>
+                छोटो जानकारी
+            </th>
+          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BreedName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortDetails)
+            </td>
+           
+            <td>
+                <a asp-action="AddEditAnimal" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="DeleteBreed" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

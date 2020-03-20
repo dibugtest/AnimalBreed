@@ -1,0 +1,142 @@
+﻿@model IEnumerable<Animal.Models.Breed>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+
+    #myTable th, #myTable td {
+        text-align: left;
+        padding: 12px;
+    }
+
+    #myTable tr {
+        border-bottom: 1px solid #ddd;
+    }
+
+        #myTable tr.header, #myTable tr:hover {
+            background-color: #f1f1f1;
+        }
+</style>
+<div class="card mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Animal Breed</h3>
+    </div>
+    <div class="card-body">
+        <p>
+            <a asp-action="AddEditBreed" class="btn btn-primary">Create New</a>
+        </p>
+        <div style="padding-top:10px;">
+            <table class="table table-bordered" id="myTable">
+                <thead>
+                    <tr>
+                        @*<th>
+                            @Html.DisplayNameFor(model => model.id)
+                        </th>*@
+                        <th>
+                           Short Name
+                        </th>
+                        <th>
+                           Long Name
+                        </th>
+                        <th>
+                           Short Detail
+                        </th>
+                        <th>
+                           Origin from
+                        </th>
+                        <th>
+                            Species Name
+                        </th>
+
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.id)
+                            </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.breedNameShort)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.breedNamelong)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.shortDetail)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.originFrom)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.species.speciesName)
+                            </td>
+
+                            <td>
+                                @Html.ActionLink("Edit", "AddEditBreed", new { id = item.id }, new { @class = "btn btn-primary" }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" }) |
+                                @Html.ActionLink("Delete", "DeleteBreed", new { id = item.id }, new { @class = "btn btn-success" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+@*<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h1 class="panel-title"><center><h4>Breeding </h4></center></h1>
+    </div>
+
+    <div class="panel-body">
+
+    </div>
+</div>*@
+
+
+@section Scripts {
+  
+   
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("body div.myTable input");
+            var dataSrc = [];
+
+            var table = $("#myTable").DataTable({
+                "columnDefs": [
+                    { "orderable": false, "targets": 3 }
+
+                ],
+                "pageLength": 50,
+
+
+            });
+        });
+
+
+
+
+    </script>
+}
+

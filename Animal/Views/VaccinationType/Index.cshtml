@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Animal.Models.VaccinationType>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Vaccination Type</h2>
+
+<p>
+    <a asp-action="AddEditAnimal">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+             Name
+            </th>
+            <th>
+               Short Note
+            </th>
+          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.vaccinationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shortNote)
+            </td>
+           
+            <td>
+                <a asp-action="AddEditAnimal" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="DeleteBreed" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

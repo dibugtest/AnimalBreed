@@ -1,0 +1,244 @@
+﻿@model Animal.Models.ViewModel.GoatCreateVM
+
+@{
+    ViewData["Title"] = "AddEditAnimal";
+}
+@section styles{
+    <link href="~/css/select2.min.css" rel="stylesheet" />
+}
+<div class="card">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">बाख्रा दर्ता</h3>
+    </div>
+    <div class="card-body">
+
+        @Html.HiddenFor(m => m.id)
+
+
+        <form asp-action="AddEditAnimal" method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>बाख्राको जात</label>
+                        @Html.DropDownListFor(m => m.GoatBreedId, Model.GoatBreeds, "छान्नुहोस्", new { @class = "form-control", id = "ddlGoatBreed" })
+
+                        <span asp-validation-for="GoatBreedId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Ear Tag</label>
+                        <input asp-for="earTagNo" class="form-control" />
+                        <span asp-validation-for="earTagNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>उत्पति</label>
+                        <input asp-for="OriginOf" class="form-control" id="txtOriginOf" />
+
+                        <span asp-validation-for="OriginOf" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>सुहाउँदो हावापानी</label>
+                        @Html.DropDownListFor(m => m.Weather, Model.Weathers, "छान्नुहोस्", new { @class = "form-control", id = "ddlGoatBreed" })
+
+                        <span asp-validation-for="Weather" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>उपयुक्त प्रयोजन</label>
+                        @Html.DropDownListFor(m => m.MainPurpose, Model.MainPurposes, "छान्नुहोस्", new { @class = "form-control", id = "ddlGoatBreed" })
+
+                        <span asp-validation-for="MainPurpose" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>उपलब्ध आधारमा(स्थानीय/बैदेशिक)</label>
+                        @Html.DropDownListFor(m => m.Availability, Model.Availabilities, "छान्नुहोस्", new { @class = "form-control", id = "ddlGoatBreed" })
+
+                        <span asp-validation-for="Availability" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>पालिने प्रकृति (चरण/बधुवा)</label>
+                        @Html.DropDownListFor(m => m.FeedingNature, Model.FeedingNatures, "छान्नुहोस्", new { @class = "form-control", id = "ddlGoatBreed" })
+                        <span asp-validation-for="FeedingNature" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>औसत पहिलो प्रजनन उमेर</label>
+                        <input asp-for="FirstPregnancyTime" class="form-control" />
+                        <span asp-validation-for="FirstPregnancyTime" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>जन्मदाको तौल</label>
+                        <input asp-for="WeightOnBirth" class="form-control" />
+                        <span asp-validation-for="WeightOnBirth" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>दैनिक तौल वृद्धिदर</label>
+                        <input asp-for="GrowthRateWt" class="form-control" />
+                        <span asp-validation-for="GrowthRateWt" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>प्रजनन अवधि</label>
+                        <input asp-for="PregnancyDuration" class="form-control" />
+                        <span asp-validation-for="PregnancyDuration" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>बाख्राको औसत तौल</label>
+                        <input asp-for="AverageWtFemale" class="form-control" />
+                        <span asp-validation-for="AverageWtFemale" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>बोकाको औसत तौल</label>
+                        <input asp-for="AverageWtMale" class="form-control" />
+                        <span asp-validation-for="AverageWtMale" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>बोकाको औसत तौलको अवधि(महिनामा)</label>
+                        <input asp-for="DurationForWt" class="form-control" />
+                        <span asp-validation-for="DurationForWt" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>बाख्राको औसत खरिद मूल्य</label>
+                        <input asp-for="PurchasePerKg" class="form-control" />
+                        <span asp-validation-for="PurchasePerKg" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>बिउ बोकाको औसत मूल्य</label>
+                        <input asp-for="PricePerKgDam" class="form-control" />
+                        <span asp-validation-for="PricePerKgDam" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>खरिदको लागि उपलब्ध बजार</label>
+                        <input asp-for="MarketPlace" class="form-control" id="txtMarket" />
+                        <span asp-validation-for="MarketPlace" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>दैनिक औसत खोराको खर्च</label>
+                        <input asp-for="FeedingExpense" class="form-control" />
+                        <span asp-validation-for="FeedingExpense" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>आनुमानित औसत अन्य खर्च</label>
+                        <input asp-for="MscExpense" class="form-control" />
+                        <span asp-validation-for="MscExpense" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>पश्मिना प्रति वर्ष ग्राममा</label>
+                        <input asp-for="PasminaProduction" class="form-control" />
+                        <span asp-validation-for="PasminaProduction" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>पश्मिना मूल्य प्रति ग्राम</label>
+                        <input asp-for="PasminaPrice" class="form-control" />
+                        <span asp-validation-for="PasminaPrice" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>मल उत्पादन प्रति वर्ष प्रति बाख्रा</label>
+                        <input asp-for="FertilizerWt" class="form-control" />
+                        <span asp-validation-for="FertilizerWt" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>मलको मूल्य प्रति केजी</label>
+                        <input asp-for="FertilizerPrice" class="form-control" />
+                        <span asp-validation-for="FertilizerPrice" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>मासुको मूल्य प्रति केजी</label>
+                        <input asp-for="PricePerKg" class="form-control" />
+                        <span asp-validation-for="PricePerKg" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>पाठा/पाठी</label>
+                        @Html.DropDownListFor(m => m.Siration, Model.Sirations, "छान्नुहोस्", new { @class = "form-control", id = "ddlGoatBreed" })
+
+                        <span asp-validation-for="Siration" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>जन्माउने पाठाको संख्या</label>
+                        @Html.DropDownListFor(m => m.NoOfBaby, Model.NoOfBabies, "छान्नुहोस्", new { @class = "form-control", id = "ddlGoatBreed" })
+
+                        <span asp-validation-for="NoOfBaby" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-12" style="text-align:center; padding-top:15px;">
+                    <input type="submit" value="Submit" class="btn btn-primary" id="txtSubmit" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div>
+        <a asp-action="Index" class="btn btn-default">Back to List</a>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/Scripts/NepaliUnicode.js"></script>
+    <script src="~/Transliteration/jsapi.js"></script>
+    <script language="javascript">
+        $(document).ready(function () {
+            var ele1 = $("#txtOriginOf");
+            var ele2 = $("#txtMarket");
+
+            AddUnicode(ele1);
+            AddUnicode(ele2);
+            
+        })
+    </script>
+    <script src="~/Transliteration/transliteration.js"></script>
+    <link href="~/Transliteration/transliteration.css" rel="stylesheet" />
+    <script src="~/Transliteration/transliteration.I.js"></script>
+}
+
+
+

@@ -1,0 +1,124 @@
+﻿@model Animal.Models.ViewModel.VaccinAnimalCreateVM
+
+@{
+    ViewData["Title"] = "Animal Vaccination";
+}
+@section styles{
+    <link href="~/css/select2.min.css" rel="stylesheet" />
+}
+<div class="card">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Animal Vaccination</h3>
+    </div>
+    <div class="card-body">
+
+        @Html.HiddenFor(m => m.id)
+
+
+        <form asp-action="AddEditAnimal" method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Animal</label>
+                        @Html.DropDownListFor(m => m.animalId, Model.animalRegistrations, "--Select--", new { @class = "form-control", id = "ddlGoatBreed" })
+
+                        <span asp-validation-for="animalId" class="text-danger"></span>
+                    </div>
+                </div><div class="col-md-4">
+                    <div class="form-group">
+                        <label>Vaccination</label>
+                        @Html.DropDownListFor(m => m.vaccinId, Model.Vaccinations, "--Select--", new { @class = "form-control", id = "ddlGoatBreed" })
+
+                        <span asp-validation-for="vaccinId" class="text-danger"></span>
+                    </div>
+                </div><div class="col-md-4">
+                    <div class="form-group">
+                        <label>Diseases</label>
+                        @Html.DropDownListFor(m => m.diseasesId, Model.Diseases, "--Select--", new { @class = "form-control", id = "ddlGoatBreed" })
+
+                        <span asp-validation-for="diseasesId" class="text-danger"></span>
+                    </div>
+                </div>
+               
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Vaccination Date</label>
+                        <input asp-for="vaccinationDate" class="form-control" id="txtDate" />
+
+                        <span asp-validation-for="vaccinationDate" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+               
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Batch No</label>
+                        <input asp-for="batchNo" class="form-control" />
+                        <span asp-validation-for="batchNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>charge</label>
+                        <input asp-for="charge" class="form-control" />
+                        <span asp-validation-for="charge" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Dosage</label>
+                        <input asp-for="dosage" class="form-control" />
+                        <span asp-validation-for="dosage" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Receipt No</label>
+                        <input asp-for="receiptNo" class="form-control" />
+                        <span asp-validation-for="receiptNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Service Provider</label>
+                        <input asp-for="serviceProviderId" class="form-control" />
+                        <span asp-validation-for="serviceProviderId" class="text-danger"></span>
+                    </div>
+                </div>
+             
+                
+                <div class="col-md-12" style="text-align:center; padding-top:15px;">
+                    <input type="submit" value="Submit" class="btn btn-primary" id="txtSubmit" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div>
+        <a asp-action="Index" class="btn btn-default">Back to List</a>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/Scripts/NepaliUnicode.js"></script>
+    <script src="~/Transliteration/jsapi.js"></script>
+    <script language="javascript">
+        $(document).ready(function () {
+            var ele1 = $("#txtOriginOf");
+            var ele2 = $("#txtMarket");
+
+            AddUnicode(ele1);
+            AddUnicode(ele2);
+            
+        })
+    </script>
+    <script src="~/Transliteration/transliteration.js"></script>
+    <link href="~/Transliteration/transliteration.css" rel="stylesheet" />
+    <script src="~/Transliteration/transliteration.I.js"></script>
+}
+
+
+

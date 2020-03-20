@@ -1,0 +1,164 @@
+﻿@model Animal.Models.Farm
+
+@{
+    ViewData["Title"] = "AddEditFarm";
+}
+
+<div class="card">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Farm</h3>
+    </div>
+    <div class="card-body">
+
+
+        @Html.HiddenFor(m => m.id)
+
+        <form asp-action="AddEditFarm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Organization Name</label>
+                        
+                        <input asp-for="orgtanizationName" class="form-control" />
+                        <span asp-validation-for="orgtanizationName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Short Detail</label>
+                        <input asp-for="shortDetail" class="form-control" />
+                        <span asp-validation-for="shortDetail" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Date of Reg</label>
+                        <input asp-for="dateOfRegistration" class="form-control" />
+                        <span asp-validation-for="dateOfRegistration" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Reg Certification</label>
+                        <input asp-for="regCertification" class="form-control" />
+                        <span asp-validation-for="regCertification" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Mobile 1</label>
+                        
+                        <input asp-for="mobile1" class="form-control" />
+                        <span asp-validation-for="mobile1" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Mobile 2</label>
+                       
+                        <input asp-for="mobile" class="form-control" />
+                        <span asp-validation-for="mobile" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input asp-for="email" class="form-control" />
+                        <span asp-validation-for="email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>URL</label>
+                        <input asp-for="url" class="form-control" />
+                        <span asp-validation-for="url" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input asp-for="address" class="form-control" />
+                        <span asp-validation-for="address" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Municipility</label>
+                        <input asp-for="municipility" class="form-control" />
+                        <span asp-validation-for="municipility" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="ward" class="control-label"></label>
+                        <input asp-for="ward" class="form-control" />
+                        <span asp-validation-for="ward" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="longitude" class="control-label"></label>
+                        <input asp-for="longitude" class="form-control" />
+                        <span asp-validation-for="longitude" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="latitude" class="control-label"></label>
+                        <input asp-for="latitude" class="form-control" />
+                        <span asp-validation-for="latitude" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Farm Type</label>
+                        <input asp-for="farmType" class="form-control" />
+                        <span asp-validation-for="farmType" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="land" class="control-label"></label>
+                        <input asp-for="land" class="form-control" />
+                        <span asp-validation-for="land" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="area" class="control-label"></label>
+                        <input asp-for="area" class="form-control" />
+                        <span asp-validation-for="area" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" style="text-align:center; padding-top:15px;">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+
+
+    <div>
+        <a asp-action="Index" class="btn btn-danger">Back to List</a>
+    </div>
+</div>
+
+

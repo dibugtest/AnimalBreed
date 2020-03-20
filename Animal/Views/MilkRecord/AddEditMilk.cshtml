@@ -1,0 +1,169 @@
+﻿@model Animal.Models.MilkRecordVM
+
+@{
+    ViewData["Title"] = "AddEditMilk";
+}
+@section styles{
+    <link href="~/css/select2.min.css" rel="stylesheet" />
+}
+<div class="card">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Milk Record</h3>
+    </div>
+    <div class="card-body">
+        @Html.HiddenFor(m => m.id)
+
+        <form asp-action="AddEditMilk">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Ear tag Number</label>
+
+                        @Html.DropDownList("animalRegistrationid", Model.animals, "Select", new { @class = "form-control", id="ddlAnimal" })
+                       
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>
+                            milking Status
+                        </label><br />
+                        <input type="radio" name="milkingStatus" onclick="clickEventGender(this);" value="Yes" />Yes&nbsp;&nbsp;
+                        <input type="radio" name="gender" onclick="clickEventGender(this);" value="No" />No
+
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Milk Volume</label>
+                        <input asp-for="milkVolume" class="form-control" />
+                        <span asp-validation-for="milkVolume" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Fat Percentage</label>
+                        <input asp-for="fatPercentage" class="form-control" />
+                        <span asp-validation-for="fatPercentage" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="snf" class="control-label"></label>
+                        <input asp-for="snf" class="form-control" />
+                        <span asp-validation-for="snf" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Recording Period</label>
+
+                        <select asp-for="recordingPeriod" class="form-control" id="trigger-dp">
+                            <option disabled selected>select Recording Period</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Noon">Noon</option>
+                            <option value="Evening">Evening</option>
+                        </select>
+                    </div>
+                    <span asp-validation-for="recordingPeriod" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Recording Date</label>
+                        <input asp-for="recordingDate" class="form-control" type="date" />
+                        <span asp-validation-for="recordingDate" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Milk Sample Box No</label>
+                        <input asp-for="milkSampleBoxNo" class="form-control" />
+                        <span asp-validation-for="milkSampleBoxNo" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Lab Id</label>
+                        @Html.DropDownList("labId", Model.labs, "Select", new { @class = "form-control", id = "ddlLab" })
+                        <span asp-validation-for="labId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Testing Charge</label>
+                        <input asp-for="testingCharge" class="form-control" />
+                        <span asp-validation-for="testingCharge" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Receipt No</label>
+                        <input asp-for="receiptNo" class="form-control" />
+                        <span asp-validation-for="receiptNo" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Gneneric Problem</label>
+                        <input asp-for="genericProblem" class="form-control" />
+                        <span asp-validation-for="genericProblem" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="vacination" class="control-label"></label>
+                        <input asp-for="vacination" class="form-control" />
+                        <span asp-validation-for="vacination" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Short Note</label>
+                        <input asp-for="shortNote" class="form-control" />
+                        <span asp-validation-for="shortNote" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <div class="col-md-12" style="text-align:center; padding-top:15px;">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+    <div>
+        <a asp-action="Index" class="btn btn-danger">Back to List</a>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#ddlAnimal").select2();
+        })
+    </script>
+}

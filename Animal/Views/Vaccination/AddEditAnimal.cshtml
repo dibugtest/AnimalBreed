@@ -1,0 +1,86 @@
+﻿@model Animal.Models.ViewModel.VaccinationCreateVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+@section styles{
+    <link href="~/css/select2.min.css" rel="stylesheet" />
+}
+<div class="card">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Vaccination</h3>
+    </div>
+    <div class="card-body">
+
+        @Html.HiddenFor(m => m.id)
+
+
+        <form asp-action="AddEditAnimal" method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Vaccination Type</label>
+                        @Html.DropDownListFor(m => m.vaccinTypeId, Model.VaccinationTypes, "--Select--", new { @class = "form-control", id = "ddlGoatBreed" })
+
+                        <span asp-validation-for="vaccinTypeId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Vaccination Sub Type</label>
+                        @Html.DropDownListFor(m => m.vaccinationSubTypeId, Model.VaccinationSubTypes, "--Select--", new { @class = "form-control", id = "ddlGoatBreed" })
+
+                        <span asp-validation-for="vaccinationSubTypeId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input asp-for="vaccinName" class="form-control" />
+                        <span asp-validation-for="vaccinName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Vaccination Form</label>
+                        <input asp-for="vaccinForm" class="form-control" id="txtOriginOf" />
+
+                        <span asp-validation-for="vaccinForm" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Manufacturer</label>
+                        <input asp-for="manufacturedBy" class="form-control" />
+                        <span asp-validation-for="manufacturedBy" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="col-md-12" style="text-align:center; padding-top:15px;">
+                    <input type="submit" value="Submit" class="btn btn-primary" id="txtSubmit" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div>
+        <a asp-action="Index" class="btn btn-default">Back to List</a>
+    </div>
+</div>
+@section Scripts{
+  
+    <script language="javascript">
+        $(document).ready(function () {
+            
+            
+        })
+    </script>
+ 
+}
+
+
+

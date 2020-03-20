@@ -1,0 +1,52 @@
+﻿@model Animal.Models.Species
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="card mb-4 col-md-8">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Species</h3>
+    </div>
+
+    <div style="padding-top:10px;">
+        <table class="table table-bordered" id="myTable">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.id)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.id)
+                </td>
+            </tr>
+            <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.speciesName)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.speciesName)
+            </td>
+            </tr>
+            <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.originFrom)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.originFrom)
+            </td>
+            </tr>
+            <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.shortNotes)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.shortNotes)
+            </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+       
+        <a asp-action="Index" class="btn btn-danger">Back to List</a>
+    </div>
+</div>

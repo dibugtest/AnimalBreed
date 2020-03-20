@@ -1,0 +1,173 @@
+﻿@model Animal.Models.GoatRegistration
+
+@{
+    ViewData["Title"] = "Goat Breed Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+</style>
+<div class="card mb-4 col-md-8 col-lg-offset-5">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">बाख्राको विवरण</h3>
+    </div>
+    <center> </center>
+    <div style="padding-top:10px;">
+        <table class="table table-bordered" id="myTable">
+            <tr></tr>
+            <tr>
+                <td></td>
+                <th>
+
+                </th>
+            </tr>
+           
+            <tr>
+                <td>Origin of</td>
+                <th>
+                    @Html.DisplayFor(model => model.OriginOf)
+                </th>
+            </tr>
+            <tr>
+                <td>हावापानी</td>
+                <th>
+                    @Html.DisplayFor(model => model.Weather)
+                </th>
+            </tr>
+            <tr>
+                <td>उपयुक्त</td>
+                <th>
+                    @Html.DisplayFor(model => model.MainPurpose)
+                </th>
+            </tr>
+            <tr>
+                <td>उपलब्ध</td>
+                <th>
+                    @Html.DisplayFor(model => model.Availability)
+                </th>
+            </tr>
+            <tr>
+                <td>पालिने प्रकृति</td>
+                <th>
+                    @Html.DisplayFor(model => model.FeedingNature)
+                </th>
+            </tr>
+            <tr>
+                <td>पाहिलो प्रजनन उमेर</td>
+                <th>
+                    @Html.DisplayFor(model => model.FirstPregnancyTime)
+                </th>
+            </tr>
+            <tr>
+                <td>जन्मदाको तौल</td>
+                <th>
+                    @Html.DisplayFor(model => model.WeightOnBirth)
+                </th>
+            </tr>
+            <tr>
+                <td>वृद्धिदर</td>
+                <th>
+                    @Html.DisplayFor(model => model.GrowthRateWt)
+                </th>
+            </tr>
+            <tr>
+                <td>प्रजनन आवधि</td>
+                <th>
+                    @Html.DisplayFor(model => model.PregnancyDuration)
+                </th>
+            </tr>
+            <tr>
+                <td>बाख्राको औसत तौल</td>
+                <th>
+                    @Html.DisplayFor(model => model.AverageWtFemale)
+                </th>
+            </tr>
+            <tr>
+                <td>बोकाको औसत तौल</td>
+                <th>
+                    @Html.DisplayFor(model => model.AverageWtMale)
+                </th>
+            </tr>
+            <tr>
+                <td>पाठा/पाठी</td>
+                <th>
+                    @Html.DisplayFor(model => model.Siration)
+                </th>
+            </tr>
+            <tr>
+                <td>जन्माउने पाठाको संख्या</td>
+                <th>
+                    @Html.DisplayFor(model => model.NoOfBaby)
+                </th>
+            </tr>
+            <tr>
+                <td>बाख्राको औसत खरिद मूल्य</td>
+                <th>
+                    @Html.DisplayFor(model => model.PurchasePerKg)
+                </th>
+            </tr>
+            <tr>
+                <td>मासुको मूल्य</td>
+                <th>
+                    @Html.DisplayFor(model => model.PricePerKg)
+                </th>
+            </tr>
+            <tr>
+                <td>बिउ बोकाको मूल्य</td>
+                <th>
+                    @Html.DisplayFor(model => model.PricePerKgDam)
+                </th>
+            </tr>
+            <tr>
+                <td>खरिदको लागि उपलब्ध बजार</td>
+                <th>
+                    @Html.DisplayFor(model => model.MarketPlace)
+                </th>
+            </tr>
+            <tr>
+                <td>दैनिक खोराको खर्च</td>
+                <th>
+                    @Html.DisplayFor(model => model.FeedingExpense)
+                </th>
+            </tr>
+            <tr>
+                <td>दिनक अन्य खर्च</td>
+                <th>
+                    @Html.DisplayFor(model => model.MscExpense)
+                </th>
+            </tr>
+            <tr>
+                <td>पस्मिना प्रति वर्ष</td>
+
+                <th>
+                    @Html.DisplayFor(model => model.PasminaProduction)
+                </th>
+            </tr>
+            <tr>
+                <td>पस्मिना मूल्य</td>
+                <th>
+                    @Html.DisplayFor(model => model.PasminaPrice)
+                </th>
+            </tr>
+            <tr>
+                <td>मल उत्पादन</td>
+
+                <th>
+                    @Html.DisplayFor(model => model.FertilizerWt)
+                </th>
+            </tr>
+            <tr>
+                <td>मल मूल्य</td>
+                <th>
+                    @Html.DisplayFor(model => model.FertilizerPrice)
+                </th>
+            </tr>
+           
+
+        </table>
+
+    </div>
+
+    <div>
+        <a asp-action="Index" class="btn btn-danger">Back to List</a>
+    </div>
+</div>

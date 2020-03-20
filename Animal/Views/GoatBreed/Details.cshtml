@@ -1,0 +1,43 @@
+﻿@model Animal.Models.GoatBreed
+
+@{
+    ViewData["Title"] = "Goat Breed Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    
+</style>
+<div class="card mb-4 col-md-8 col-lg-offset-5" >
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">बाख्राको जात</h3>
+    </div>
+    <center> @*<img src='@ViewBag.Image' asp-append-version="true" />*@</center>
+        <div style="padding-top:10px;">
+            <table class="table table-bordered" id="myTable">
+                <tr>
+                  
+                </tr>
+                <tr>
+                    <td>
+                       बाख्राको जात
+                    </td>
+                    <th>
+                        @Html.DisplayFor(model => model.BreedName)
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        छोटो जानकारी
+                    </td>
+                    <th>
+                        @Html.DisplayFor(model => model.ShortDetails)
+                    </th>
+                </tr>
+            </table>
+      
+    </div>
+
+    <div>
+        <a asp-action="Index" class="btn btn-default">Back to List</a>
+    </div>
+</div>

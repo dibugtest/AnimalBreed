@@ -1,0 +1,87 @@
+﻿@model Animal.Models.Ai
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+</style>
+<div class="card mb-4 col-md-8 col-lg-offset-5">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Ai</h3>
+    </div>
+    <center> </center>
+    <div style="padding-top:10px;">
+        <table class="table table-bordered" id="myTable">
+            <tr></tr>
+            <tr>
+                <td></td>
+                <th>
+
+                </th>
+            </tr>
+
+            <tr>
+                <td>Ear Tag</td>
+                <th>
+                    @Html.DisplayFor(model => model.earTagNo)
+                </th>
+            </tr>
+            <tr>
+                <td>Bull</td>
+                <th>
+                    @Html.DisplayFor(model => model.Bull.earTagNo)
+                </th>
+            </tr>
+            <tr>
+                <td>Ear Tag</td>
+                <th>
+                    @Html.DisplayFor(model => model.earTagNo)
+                </th>
+            </tr>
+            <tr>
+                <td>Bull</td>
+                <th>
+                    @Html.DisplayFor(model => model.Bull.earTagNo)
+                </th>
+            </tr>
+            <tr>
+                <td>Charge</td>
+                <th>
+                    @Html.DisplayFor(model => model.amounReceived)
+                </th>
+            </tr>
+            <tr>
+                <td>Semen Batch No</td>
+                <th>
+                    @Html.DisplayFor(model => model.semenBatchNo)
+                </th>
+            </tr>
+            <tr>
+                <td>Receipt No</td>
+                <th>
+                    @Html.DisplayFor(model => model.recepitNo)
+                </th>
+            </tr>
+            <tr>
+                <td>Semen Dose Wasted</td>
+                <th>
+                    @Html.DisplayFor(model => model.semenDoseWasted)
+                </th>
+            </tr>
+            <tr>
+                <td>Location</td>
+                <th>
+                    @Html.DisplayFor(model => model.locationNo)
+                </th>
+            </tr>
+          
+
+        </table>
+
+    </div>
+
+    <div>
+        <a asp-action="Index" class="btn btn-danger">Back to List</a>
+    </div>
+</div>

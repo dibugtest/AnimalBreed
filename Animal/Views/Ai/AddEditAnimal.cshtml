@@ -1,0 +1,166 @@
+﻿@model Animal.Models.ViewModel.AiCreateVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+@section styles{
+    <link href="~/css/select2.min.css" rel="stylesheet" />
+}
+<div class="card">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Sub Type</h3>
+    </div>
+    <div class="card-body">
+
+        @Html.HiddenFor(m => m.id)
+
+
+        <form asp-action="AddEditAnimal" method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Animal </label>
+                        @Html.DropDownListFor(m => m.AnimalId, Model.Animals, "--Select--", new { @class = "form-control", id = "ddlEarTag" })
+
+                        <span asp-validation-for="AnimalId" class="text-danger"></span>
+                    </div>
+                </div> <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Bull </label>
+                        @Html.DropDownListFor(m => m.BullId, Model.Bulls, "--Select--", new { @class = "form-control", id = "ddlBull" })
+
+                        <span asp-validation-for="BullId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>
+                            InSeminator Patch
+                        </label>
+                        <input asp-for="inSeminationPatch" class="form-control" />
+                        <span asp-validation-for="inSeminationPatch" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>
+                            InSeminator Date
+                        </label>
+                        <input asp-for="InseminationDate" class="form-control" />
+                        <span asp-validation-for="InseminationDate" class="text-danger" id="txtDate"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>
+                           Previous InSeminator Date
+                        </label>
+                        <input asp-for="previousInseminationDate" class="form-control" />
+                        <span asp-validation-for="previousInseminationDate" class="text-danger" id="txtPrevDate"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>
+                            InSeminator
+                        </label>
+                        <input asp-for="inSemnator" class="form-control" />
+                        <span asp-validation-for="inSemnator" class="text-danger"></span>
+                    </div>
+                </div><div class="col-md-3">
+                    <div class="form-group">
+                        <label>
+                            Location
+                        </label>
+                        <input asp-for="locationNo" class="form-control" />
+                        <span asp-validation-for="locationNo" class="text-danger"></span>
+                    </div>
+                </div>
+            
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>
+                            RecepitNo
+                        </label>
+                        <input asp-for="recepitNo" class="form-control" />
+                        <span asp-validation-for="recepitNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>
+                            Semen Batch No
+                        </label>
+                        <input asp-for="semenBatchNo" class="form-control" />
+                        <span asp-validation-for="semenBatchNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>
+                            Semen Dose Wasted
+                        </label>
+                        <input asp-for="semenDoseWasted" class="form-control" />
+                        <span asp-validation-for="semenDoseWasted" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>
+                            Charge
+                        </label>
+                        <input asp-for="amounReceived" class="form-control" />
+                        <span asp-validation-for="amounReceived" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-12" style="text-align:center; padding-top:15px;">
+                    <input type="submit" value="Submit" class="btn btn-primary" id="txtSubmit" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div>
+        <a asp-action="Index" class="btn btn-default">Back to List</a>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/js/select2.min.js"></script>
+    <script language="javascript">
+        function CheckBull() {
+            var option = "";
+            var ear = $("#ddlEarTag").val();
+            if (ear != null) {
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    url: RootUrl + 'Request/GetBull?id=' + ear,
+                    success: function (response) {
+                        $("#ddlBull").empty();
+                        option += '<option value="">--Select--</option>';
+                        for (var i = 0; i < response.length; i++) {
+                            option += '<option value="' + listJornalNo[i].id + '">' + listJornalNo[i].earTagNo + '</option>';
+                        }
+                        $('#ddlBull').append(option);
+                    }
+                })
+            }
+        }
+
+        $(document).ready(function () {
+            $("#ddlEarTag").on("change", function () { CheckBull(); });
+            //$("#ddlEarTag").select2();
+            //$("#ddlBull").select2();
+
+        })
+    </script>
+
+}
+
+
+

@@ -1,0 +1,156 @@
+﻿@model Animal.Models.ViewModel.GoatSelectionVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="card mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">बाख्रा छान्नुहोस्</h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="selection">
+            <div class="row">
+                <div class="col-md-12">
+                   @if (ViewBag.Error != null)
+                   {
+                       @ViewBag.Error
+                   }
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>उपयुक्त हावापानी</label>
+                        @Html.DropDownListFor(m => m.Weather, Model.Weathers, "छान्नुहोस्", new { @class = "form-control", id = "ddl" })
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>पालिने प्रयोजन</label>
+                        @Html.DropDownListFor(m => m.MainPurpose, Model.MainPurposes, "छान्नुहोस्", new { @class = "form-control", id = "ddl" })
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>उपलब्धताका आधारमा</label>
+                        @Html.DropDownListFor(m => m.Availability, Model.Availabilities, "छान्नुहोस्", new { @class = "form-control", id = "ddl" })
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>जात</label>
+                        @Html.DropDownListFor(m => m.GoatBreed, Model.GoatBreeds, "छान्नुहोस्", new { @class = "form-control", id = "ddl" })
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <input type="submit" class="btn-primary" value="Search"/>
+                </div>
+            </div>
+        </form>
+        @*<label>@ViewData["fileLocation"]</label>*@
+
+        <div style="padding-top:10px;">
+            <table class="table table-bordered" id="myTable">
+                <thead>
+                    <tr>
+                        <th>
+                            जात
+                        </th>
+                        <th>
+                            उत्पति
+                        </th>
+                        <th>
+                            हावापानी
+                        </th>
+                        <th>
+                            पालिने प्रयोजन
+                        </th>
+                        <th>
+                            खरिद मूल्य
+                        </th>
+                        <th>
+                            बिउ बोकाको मूल्य
+                        </th>
+                        <th>
+                            वृद्धिदर
+                        </th>
+                        <th></th>
+                    </tr>
+                    </thead>
+<tbody>
+                    @foreach (var item in Model.GoatIndex)
+                    {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Breed.BreedName)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Goat.OriginOf)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Goat.Weather)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Goat.MainPurpose)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Goat.PurchasePerKg)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Goat.PricePerKgDam)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Goat.GrowthRateWt)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "Details", new { id = item.Goat.id }, new { @class = "btn btn-info" }) |
+                            </td>
+                           
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("body div.myTable input");
+            var dataSrc = [];
+            var table = $("#myTable").DataTable({
+                "columnDefs": [
+                    { "orderable": false, "targets": 3 }
+                ],
+                "pageLength": 50,
+            });
+
+            //$("#ddlBreed").change(function () {
+            //    searchData(2, $(this).val());
+            //})
+
+            //$("#ddlSpecies").change(function () {
+            //    searchData(1, $(this).val());
+            //})
+
+            //$("#ddlFarm").change(function () {
+            //    searchData(6, $(this).val());
+            //})
+
+            //$("#ddlOwner").change(function () {
+            //    searchData(5, $(this).val());
+            //})
+
+
+        });
+
+                //function searchData(col, value) {
+                //    var table = $("#myTable").DataTable();
+                //    table.column(col).search(value).draw();
+                //}
+    </script>
+}

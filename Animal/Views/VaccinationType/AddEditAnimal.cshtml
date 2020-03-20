@@ -1,0 +1,58 @@
+﻿@model Animal.Models.VaccinationType
+
+@{
+    ViewData["Title"] = "Vaccination Type";
+}
+@section styles{
+    <link href="~/css/select2.min.css" rel="stylesheet" />
+}
+<div class="card">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Vaccination Type</h3>
+    </div>
+    <div class="card-body">
+
+        @Html.HiddenFor(m => m.id)
+
+
+        <form asp-action="AddEditAnimal" enctype="multipart/form-data" method="post">
+            @*<input asp-for="id" type="hidden" />*@
+
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input asp-for="vaccinationName" class="form-control" id="txtBreedName" />
+                        <span asp-validation-for="vaccinationName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="form-group">
+                        <label>Short Note</label>
+                        <input asp-for="shortNote" class="form-control" id="txtShortDetails" />
+                        <span asp-validation-for="shortNote" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12" style="text-align:center; padding-top:15px;">
+                    <input type="submit" value="Submit" class="btn btn-primary" id="txtSubmit" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-default">Back to List</a>
+</div>
+
+@section Scripts{
+   
+}
+
+

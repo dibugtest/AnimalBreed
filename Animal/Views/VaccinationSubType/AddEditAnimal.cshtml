@@ -1,0 +1,64 @@
+﻿@model Animal.Models.ViewModel.VaccinationSubTypeVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+@section styles{
+    <link href="~/css/select2.min.css" rel="stylesheet" />
+}
+<div class="card">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Sub Type</h3>
+    </div>
+    <div class="card-body">
+
+        @Html.HiddenFor(m => m.id)
+
+
+        <form asp-action="AddEditAnimal" method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Vaccination Type</label>
+                        @Html.DropDownListFor(m => m.VaccinationTypeId, Model.VaccinationTypes, "--Select--", new { @class = "form-control", id = "ddlGoatBreed" })
+
+                        <span asp-validation-for="VaccinationTypeId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>
+                            Sub Type Name
+                        </label>
+                        <input asp-for="SubTypeName" class="form-control" />
+                        <span asp-validation-for="SubTypeName" class="text-danger"></span>
+                    </div>
+                </div>
+               
+                <div class="col-md-12" style="text-align:center; padding-top:15px;">
+                    <input type="submit" value="Submit" class="btn btn-primary" id="txtSubmit" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div>
+        <a asp-action="Index" class="btn btn-default">Back to List</a>
+    </div>
+</div>
+@section Scripts{
+    
+    <script language="javascript">
+        $(document).ready(function () {
+          
+            
+        })
+    </script>
+  
+}
+
+
+

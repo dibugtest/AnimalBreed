@@ -1,0 +1,69 @@
+﻿@model Animal.Models.VaccinationAnimal
+
+@{
+    ViewData["Title"] = "Goat Breed Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+</style>
+<div class="card mb-4 col-md-8 col-lg-offset-5">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Animal Vaccination</h3>
+    </div>
+    <center> </center>
+    <div style="padding-top:10px;">
+        <table class="table table-bordered" id="myTable">
+            <tr></tr>
+            <tr>
+                <td></td>
+                <th>
+
+                </th>
+            </tr>
+           
+            <tr>
+                <td>Animal</td>
+                <th>
+                    @Html.DisplayFor(model => model.animalRegistration.earTagNo)
+                </th>
+            </tr>
+            <tr>
+                <td>Vaccination</td>
+                <th>
+                    @Html.DisplayFor(model => model.vaccination.vaccinName)
+                </th>
+            </tr>
+            <tr>
+                <td>Vaccination Date</td>
+                <th>
+                    @Html.DisplayFor(model => model.vaccinationDate)
+                </th>
+            </tr>
+            <tr>
+                <td>Dosage</td>
+                <th>
+                    @Html.DisplayFor(model => model.dosage)
+                </th>
+            </tr>
+          
+            <tr>
+                <td>Charge</td>
+                <th>
+                    @Html.DisplayFor(model => model.charge)
+                </th>
+            </tr><tr>
+                <td>Service Provider</td>
+                <th>
+                    @Html.DisplayFor(model => model.serviceProviderId)
+                </th>
+            </tr>
+           
+
+        </table>
+
+    </div>
+
+    <div>
+        <a asp-action="Index" class="btn btn-danger">Back to List</a>
+    </div>
+</div>

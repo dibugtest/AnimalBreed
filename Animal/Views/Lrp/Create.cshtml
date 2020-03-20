@@ -1,0 +1,125 @@
+﻿@model Animal.Models.ViewModel.LrpVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-bold center text-primary">
+            LRP
+        </h3>
+    </div>
+    <div class="card-body">
+        <div class="col-md-12">
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-success">
+                    @ViewBag.Message
+                </div>
+            }
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        </div>
+        <input asp-for="id" class="form-control" type="hidden" />
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="fullName" class="control-label"></label>
+                        <input asp-for="fullName" class="form-control" />
+                        <span asp-validation-for="fullName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="email" class="control-label"></label>
+                        <input asp-for="email" class="form-control" />
+                        <span asp-validation-for="email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="address" class="control-label"></label>
+                        <input asp-for="address" class="form-control" />
+                        <span asp-validation-for="address" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="provience" class="control-label"></label>
+                        <input asp-for="provience" class="form-control" />
+                        <span asp-validation-for="provience" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="munipalicity" class="control-label"></label>
+                        <input asp-for="munipalicity" class="form-control" />
+                        <span asp-validation-for="munipalicity" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="area" class="control-label"></label>
+                        <input asp-for="area" class="form-control" />
+                        <span asp-validation-for="area" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="password" class="control-label"></label>
+                        <input asp-for="password" class="form-control" />
+                        <span asp-validation-for="password" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="confirmPassword" class="control-label"></label>
+                        <input asp-for="confirmPassword" class="form-control" />
+                        <span asp-validation-for="confirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="userName" class="control-label"></label>
+                        <input asp-for="userName" class="form-control" />
+                        <span asp-validation-for="userName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="phoneNo" class="control-label"></label>
+                        <input asp-for="phoneNo" class="form-control" />
+                        <span asp-validation-for="phoneNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="role" class="control-label"></label>
+                        <input asp-for="role" class="form-control" />
+                        <span asp-validation-for="role" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="permission" /> @Html.DisplayNameFor(model => model.permission)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
